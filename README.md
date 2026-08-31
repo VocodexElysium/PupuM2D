@@ -1,2 +1,2 @@
-# PupuJEPA
-PupuJEPA demo page
+# PupuM2D
+PupuM2D demo page
