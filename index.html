@@ -224,19 +224,19 @@
               <a href="#home" class="list-select"><b>Home</b></a>
             </li>
             <li>
-              <a href="#pupujepa-intuition" class="list-select"><b>Intuition</b></a>
+              <a href="#pupum2d-intuition" class="list-select"><b>Intuition</b></a>
             </li>
             <li>
-              <a href="#pupujepa-methodology" class="list-select"><b>Methodology</b></a>
+              <a href="#pupum2d-methodology" class="list-select"><b>Methodology</b></a>
             </li>
             <li>
-              <a href="#pupujepa-marble" class="list-select"><b>MARBLE Benchmark</b></a>
+              <a href="#pupum2d-marble" class="list-select"><b>MARBLEv2 Benchmark</b></a>
             </li>
             <li>
-              <a href="#pupujepa-case" class="list-select"><b>Case Study</b></a>
+              <a href="#pupum2d-case" class="list-select"><b>Case Study</b></a>
             </li>
             <li>
-              <a href="https://github.com/sizigi/PupuJEPA" class="list-select" target="_blank">
+              <a href="https://github.com/sizigi/PupuM2D" class="list-select" target="_blank">
                 <svg class="w-6 h-6 text-gray-900 hover:text-blue-700" aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                   <path fill-rule="evenodd"
@@ -246,7 +246,7 @@
               </a>
             </li>
             <li>
-              <a href="https://huggingface.co/spellbrush/PupuJEPA" class="list-select" target="_blank">
+              <a href="https://huggingface.co/spellbrush/PupuM2D" class="list-select" target="_blank">
                 <img class="h-6 w-6" src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" />
               </a>
             </li>
@@ -276,10 +276,10 @@
           <a href="https://arxiv.org/abs/2606.25713" target="_blank">
             <img src="https://img.shields.io/badge/arXiv-Paper-red.svg">
           </a>
-          <a href="https://github.com/sizigi/PupuJEPA" target="_blank">
+          <a href="https://github.com/sizigi/PupuM2D" target="_blank">
             <img src="https://img.shields.io/badge/GitHub-Repo-blue">
           </a>
-          <a href="https://huggingface.co/spellbrush/PupuJEPA" target="_blank">
+          <a href="https://huggingface.co/spellbrush/PupuM2D" target="_blank">
             <img src="https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Model-yellow">
           </a>
         </div>
@@ -317,21 +317,21 @@
               a fundamental intuition in music production.
               In particular, music is naturally represented as time-frequency grids in MIDI-based workflows, a structure
               that tightly corresponds to 2D spectrograms and inherently makes many MIR tasks trivial.
-              Motivated by this intuition, we propose PupuJEPA, a visual Joint-Embedding Predictive Architecture (JEPA)
-              that is trained directly on 2D spectrograms.
-              Instead of applying masked language modeling (MLM) to 1D sequences, PupuJEPA learns robust representations
-              by predicting the latent embeddings of masked 2D spectrogram patches from unmasked contexts. To optimally
-              adapt such a visual framework to music signals, we also apply domain-specific modifications to model
+              Motivated by this intuition, we propose PupuM2D, a musical Masked Modeling Duo (M2D) model that is trained
+              directly on 2D music spectrograms.
+              Instead of applying masked language modeling (MLM) to 1D sequences, PupuM2D learns robust representations
+              by predicting the latent embeddings of masked 2D music spectrogram patches from unmasked contexts.
+              To optimally adapt such a framework to music signals, we also apply domain-specific modifications to model
               architecture, training scheme, and inference paradigm, with comprehensive ablation studies showing their
               effectiveness.
-              Evaluations on the MARBLE benchmark show that PupuJEPA outperforms the 1D sequence-based SSL models across
+              Evaluations on the MARBLEv2 benchmark show that PupuM2D outperforms the sequence-based SSL models across
               multiple MIR tasks in linear probing.
-              Additionally, case studies of the attention maps also confirm that PupuJEPA captures musically meaningful
+              Additionally, case studies of the attention maps also confirm that PupuM2D captures musically meaningful
               patterns within the 2D time-frequency domain.
             </p>
           </div>
 
-          <div class="mt-8 mb-8" id="pupujepa-intuition">
+          <div class="mt-8 mb-8" id="pupum2d-intuition">
             <h4>Intuition</h4>
             <p class="text-p text-justify leading-relaxed [text-align-last:left]">
               The intuition of this work is extremely simple:
@@ -473,29 +473,31 @@
               the figure below:
             </p>
             <div class="w-full mt-8 mb-6 rounded-lg overflow-hidden border border-gray-200 shadow-sm">
-              <img src="./static/pupujepa-intuition.png" alt="FL Studio Playlist"
+              <img src="./static/pupum2d-intuition.png" alt="FL Studio Playlist"
                 class="w-full h-auto object-cover block">
             </div>
           </div>
 
-          <div class="mt-8 mb-8" id="pupujepa-methodology">
+          <div class="mt-8 mb-8" id="pupum2d-methodology">
             <h4>Methodology</h4>
             <div class="w-full mt-8 mb-6 rounded-lg overflow-hidden border border-gray-200 shadow-sm">
-              <img src="./static/pupujepa-model.png" class="w-full h-auto object-cover block">
+              <img src="./static/pupum2d-model.png" class="w-full h-auto object-cover block">
             </div>
             <p class="text-p text-justify leading-relaxed [text-align-last:left]">
-              We adapt the Joint-Embedding Predictive Architecture (JEPA) and propose PupuJEPA. We did not use the
+              We adapt the Masked Modeling Duo (M2D) architecture and therefore propose PupuM2D. We did not use the
               Masked Autoencoder (MAE) architecture, as it is prone to overfitting spectrogram details, since musical
               spectrogram patches are highly temporally and spectrally correlated. We did not use the DINO architecture,
-              as music signals inherently lack data augmentation methods to obtain different views. To optimize such a
+              as music signals inherently lack data augmentation methods to obtain different views. We also did not
+              adapt the Joint-Embedding Predictive Architecture (JEPA) as M2D is proposed eailier in audio SSL and it
+              still performs better. To optimize such a
               framework in the music domain, we additionally introduce various essential changes to the model
               architecture, training scheme, and inference paradigms. For more details, please checkout our <a
                 href="2606.25713">preprint</a>.
             </p>
           </div>
 
-          <div class="mt-8 mb-8" id="pupujepa-marble">
-            <h4>MARBLE Benchmark</h4>
+          <div class="mt-8 mb-8" id="pupum2d-marble">
+            <h4>MARBLEv2 Benchmark</h4>
             <div class="w-full mt-8 mb-6 rounded-lg overflow-hidden border border-gray-200 shadow-sm">
               <img src="./static/table1.png" class="w-full h-auto object-cover block">
             </div>
@@ -503,27 +505,32 @@
               <img src="./static/table2.png" class="w-full h-auto object-cover block">
             </div>
             <p class="text-p text-justify leading-relaxed [text-align-last:left]">
-              We evaluate PupuJEPA on the MARBLE benchmark, as illustrated above. The details description of differnet
-              tasks can be found <a href="https://github.com/a43992899/MARBLE">here</a>. In particular, for 1D
-              sequence-based music and general sound SSL baselines, we compare with MERT (ICLR 2024), Dasheng
-              (Interspeech 2024), MuQ
+              We evaluate PupuM2D on the MARBLE benchmarkv2, as illustrated above. The details description of differnet
+              tasks can be found <a href="https://github.com/a43992899/MARBLE">here</a>.
+              In particular, for 1D
+              sequence-based music and general sound SSL baselines, we compare with MERT (ICLR 2024), MuQ
               (TASLP 2025), and MusicFM (ICASSP 2024); for 2D spectrogram-based audio SSL baselines, we compare
-              with AudioMAE++ (NeurIPS 2022, MLSP 2025), MATPAC++ (ICASSP 2025), and A-JEPA (2023). For music and
-              general sound SSL baselines, we directly use the pre-trained checkpoint and code from MARBLE; for audio
-              SSL baselines, we re-implemented the model and re-trained them using our in-house datasets under the exact
-              same configuration provided in their paper. We
-              additionally apply the same domain-specific optimization on inference paradigm to ensure a fair
-              comparison.
+              with AudioMAE++ (NeurIPS 2022, MLSP 2025), M2D (ICASSP 2023), and BEATs (ICML 2023). We also compare with
+              universal sound SSL
+              baselines including MATPAC++ (ICASSP 2025), M2D-X (TASLP 2024), and Dasheng
+              (Interspeech 2024). We further reproduced several representative audio and universal SSL models from
+              scratch on our in-house dataset. To ensure a fair comparison, we use the exact same optimal ViT model
+              architecture
+              and inference paradigm developed for PupuM2D (i.e., layer fusion and patch aggregation strategies) for
+              both training and evaluation. It is important to note that
+              the scores derived from MARBLEv2 are not strictly comparable to those from MARBLEv1 due to differences in
+              implementation. Also, the local task evaluation results of some audio and universal SSL models are
+              omitted, as their output feature frame rates are insufficient.
             </p>
             <p class="text-p text-justify leading-relaxed [text-align-last:left]">
-              It can be observed that PupuJEPA achieves SOTA performance across various MIR tasks. Notably, for MIR
-              tasks that can be inherently addressed by barely observing the spectrogram, PupuJEPA obtains significantly
+              It can be observed that PupuM2D achieves SOTA performance across various MIR tasks. Notably, for MIR
+              tasks that can be inherently addressed by barely observing the spectrogram, PupuM2D obtains significantly
               better results, illustrating the effectiveness of our intuition. For instance, in GS Key detection,
-              PupuJEPA-Tiny outperforms almost all baseline model, with only 5M parameters.
+              PupuM2D-Tiny outperforms almost all baseline model, with only 5M parameters.
             </p>
           </div>
 
-          <div class="mt-8 mb-8" id="pupujepa-case">
+          <div class="mt-8 mb-8" id="pupum2d-case">
             <h4>Case Study</h4>
             <div class="w-full mt-8 mb-6 rounded-lg overflow-hidden border border-gray-200 shadow-sm">
               <img src="./static/case-study.png" class="w-full h-auto object-cover block">
@@ -571,20 +578,20 @@
               attention weights.
             </p>
             <p class="text-p text-justify leading-relaxed [text-align-last:left]">
-              The bottom-left panel illustrates the attention map when PupuJEPA tries to predict a masked Kick drum.
+              The bottom-left panel illustrates the attention map when PupuM2D tries to predict a masked Kick drum.
               It can be observed that, instead of simply looking at the surrounding pixels, its attention spans broadly
               across the music segment, selectively highlighting other Kick drum distributions with similar rhythm
               patterns.
-              Conversely, the bottom-right panel shows the attention map when PupuJEPA tries to recover the masked root
+              Conversely, the bottom-right panel shows the attention map when PupuM2D tries to recover the masked root
               notes of a Lead sound. its attention spans across the remaining unmasked harmonics and the adjacent
               melodic progressions just before the masked region, showing its ability to understand musical
               context.
             </p>
             <p class="text-p text-justify leading-relaxed [text-align-last:left]">
               Such visual evidence strongly validates our core intuition. Just like
-              music producers can "mentally reconstruct" a multi-track project from a 2D spectrogram, the PupuJEPA,
+              music producers can "mentally reconstruct" a multi-track project from a 2D spectrogram, the PupuM2D,
               pre-trained
-              directly on music spectrograms, also develops this capability. As in the case study, PupuJEPA
+              directly on music spectrograms, also develops this capability. As in the case study, PupuM2D
               naturally enables zero-shot disentanglement of individual tracks and long-range musical structural
               analysis, thereby making many MIR tasks trivial to probe and achieving the SOTA performance.
             </p>
